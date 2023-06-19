@@ -148,3 +148,24 @@ document.getElementById("brusselsSproutsImg").removeAttribute("hidden");
 document.getElementById("broccoliImg").removeAttribute("hidden");
 
 // Bonus 2 - Promise all
+const cookingPromises = brusselsSprouts.map((step, index) =>
+  obtainInstruction("brusselsSprouts", index)
+);
+
+Promise.all(cookingPromises)
+  .then((steps) => {
+    const brusselsSproutsList = document.querySelector("#brusselsSprouts");
+
+    steps.forEach((step, index) => {
+      const li = document.createElement("li");
+      li.textContent = step;
+      brusselsSproutsList.appendChild(li);
+    });
+
+    const readyLi = document.createElement("li");
+    readyLi.textContent = "Brussels sprouts are ready!";
+    brusselsSproutsList.appendChild(readyLi);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
