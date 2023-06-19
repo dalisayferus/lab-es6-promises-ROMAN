@@ -142,5 +142,9 @@ async function makeBroccoli() {
 }
 makeBroccoli();
 
+document.getElementById("mashedPotatoesImg").removeAttribute("hidden");
+document.getElementById("steakImg").removeAttribute("hidden");
+document.getElementById("brusselsSproutsImg").removeAttribute("hidden");
+document.getElementById("broccoliImg").removeAttribute("hidden");
+
 // Bonus 2 - Promise all
-// ...
